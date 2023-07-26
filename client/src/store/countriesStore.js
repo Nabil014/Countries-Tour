@@ -11,7 +11,7 @@ const countriesStore = create((set, get) => ({
   fetchData: async () => {
     set({ isLoading: true, error: null })
     try {
-      const response = await axios.get('http://localhost:3001/api/countries')
+      const response = await axios.get('/api/countries')
       set({
         data: response.data.data,
         isLoading: false,
@@ -24,9 +24,7 @@ const countriesStore = create((set, get) => ({
   fetchCountry: async (id) => {
     try {
       set({ isLoading: true })
-      const response = await axios.get(
-        `http://localhost:3001/api/countries/${id}`
-      )
+      const response = await axios.get(`/api/countries/${id}`)
       set({ country: response.data.data })
     } catch (error) {
       set({ error: error.message })
@@ -37,9 +35,7 @@ const countriesStore = create((set, get) => ({
   searchFetch: async (search) => {
     set({ isLoading: true, error: null })
     try {
-      const response = await axios.get(
-        `http://localhost:3001/api/countries?name=${search}`
-      )
+      const response = await axios.get(`/api/countries?name=${search}`)
       set({ data: response.data.data, isLoading: false })
     } catch (error) {
       set({ error: error.message, isLoading: false })
@@ -57,7 +53,7 @@ const countriesStore = create((set, get) => ({
   getActivities: async () => {
     set({ isLoading: true })
     try {
-      const response = await axios.get('http://localhost:3001/api/activities')
+      const response = await axios.get('/api/activities')
       set({ isLoading: false, activities: response.data.data })
     } catch (error) {
       set({ error: error.message })
@@ -68,7 +64,7 @@ const countriesStore = create((set, get) => ({
   postActivity: async (activity) => {
     set({ isLoading: true })
     try {
-      await axios.post('http://localhost:3001/api/activities', activity)
+      await axios.post('/api/activities', activity)
       set({ isLoading: false })
     } catch (error) {
       set({ error: error.message })
