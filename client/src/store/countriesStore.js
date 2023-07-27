@@ -45,7 +45,7 @@ const countriesStore = create((set, get) => ({
     set({ isLoading: true, error: null })
     const allCountries = get().allCountries
     const continentFiltered =
-      continent === 'All'
+      continent === 'All Continents'
         ? allCountries
         : allCountries.filter((country) => country.continent === continent)
     set({ isLoading: false, error: null, data: continentFiltered })
@@ -85,6 +85,17 @@ const countriesStore = create((set, get) => ({
             country.activities.find((act) => act.name === activity)
           )
     set({ isLoading: false, error: null, data: activityFiltered })
+  },
+  sortedByPopulation: async (order) => {
+    const data = [...get().data]
+
+    const populationSorted =
+      order === 'Asc'
+        ? data.sort((a, b) => a.population - b.population)
+        : data.sort((a, b) => b.population - a.population)
+
+    console.log(populationSorted)
+    set({ isLoading: false, error: null, data: populationSorted })
   },
 }))
 

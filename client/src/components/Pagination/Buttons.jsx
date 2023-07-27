@@ -16,7 +16,7 @@ export default function Buttons ({ currentPage, totalItems, itemPerPage, onPageC
         top: 0,
         behavior: 'smooth'
       })
-    }, 50) // Ajusta el tiempo de retraso según tus necesidades
+    }, 50)
   }
 
   return (
