@@ -8,13 +8,14 @@ import { IoCreateOutline } from 'react-icons/io5'
 
 
 export default function Filters () {
-  const { sortedByContinent, activities, sortedByActivity, sortedByPopulation, data } = countriesStore()
+  const { sortedByContinent, activities, sortedByActivity, sortedByPopulation } = countriesStore()
 
   const { setCurrentPage } = useContext(PaginationContext)
   const { search } = useContext(SearchContext)
 
   const continents = ['All Continents', 'Europe', 'Asia', 'Africa', 'South America', 'North America', 'Oceania']
   const populationOptions = ['Asc', 'Desc']
+
   const [selectedContinent, setSelectedContinent] = useState(continents[0])
   const [selectedActivity, setSelectedActivity] = useState('Activities')
   const [selectedPopulation, setSelectedPopulation] = useState('Population')
@@ -48,7 +49,6 @@ export default function Filters () {
 
   useEffect(() => {
     setSelectedContinent(continents[0])
-
   }, [search])
 
 
