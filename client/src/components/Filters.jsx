@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
+import { Link } from 'wouter'
 import countriesStore from '../store/countriesStore'
 import { PaginationContext } from '../context/paginationContext'
 import { SearchContext } from '../context/searchContext'
 import Dropdown from './Dropdown'
+import { IoCreateOutline } from 'react-icons/io5'
+
 
 export default function Filters () {
   const { sortedByContinent, activities, sortedByActivity, sortedByPopulation, data } = countriesStore()
@@ -50,10 +53,15 @@ export default function Filters () {
 
 
   return (
-    <div className='flex gap-3 md:gap-x-10'>
+    <div className='grid items-center justify-center grid-cols-2 gap-2 md:flex '>
       <Dropdown selectedOption={selectedContinent} options={continents} selectOption={handleContinentSelect} setIsOpen={setIsContinentOpen} isOpen={isContinentOpen} />
       <Dropdown selectedOption={selectedActivity} options={activitiesOptions} selectOption={handleActivitySelect} setIsOpen={setIsActivityOpen} isOpen={isActivityOpen} />
       <Dropdown selectedOption={selectedPopulation} options={populationOptions} selectOption={handlePopulationSelect} setIsOpen={setIsPopulationOpen} isOpen={isPopulationOpen} />
+      <Link href={'/create'}>
+        <button className="flex items-center justify-center gap-2 p-2 transition-colors bg-gray-200 rounded-md hover:bg-gray-300">
+          <IoCreateOutline /> Create Activity
+        </button>
+      </Link>
     </div>
   )
 }

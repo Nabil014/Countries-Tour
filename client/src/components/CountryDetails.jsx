@@ -22,14 +22,14 @@ export default function CountryDetails () {
     <div>
       {
         country ?
-          < div className="flex flex-col h-screen">
+          < div className="flex flex-col h-[95vh] ">
             <div className="flex items-center p-6 gap-x-14">
               <img src={arrowLeft} className="w-10 cursor-pointer" alt="icon-arrowLeft" onClick={() => window.history.back()} />
               <h1 className="text-3xl text-white ">{country.name} Details</h1>
             </div>
             <div className="flex gap-x-5 h-[85%] items-center text-white ">
-              <div className="flex justify-center w-1/2">
-                <img src={country.flag} alt={country.name} className="w-[350px] h-[250px] rounded-lg" />
+              <div className="flex justify-center w-1/2 pl-3">
+                <img src={country.flag} alt={country.name} className="md:w-[350px] md:h-[250px] rounded-lg" />
               </div>
               <div className="flex flex-col w-1/2 text-xl font-semibold gap-y-4">
                 <p>Capital: {country.capital ?? "No capital"}</p>

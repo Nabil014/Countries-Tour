@@ -21,7 +21,7 @@ export default function Countries () {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-5 place-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-14">
+      <div className="grid min-h-[70vh] md:min-h-[65vh] grid-cols-1 gap-5 place-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-14">
 
         {isLoading && <img className="absolute top-0 bottom-0 left-0 right-0 m-auto" src={loader} alt="loader"></img>}
         {
