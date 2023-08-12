@@ -12,3 +12,13 @@ conn.sync({ force: false }).then(async () => {
     console.log(error)
   }
 })
+
+function keepBackendActive() {
+  console.log('Keeping the backend active...')
+
+  setInterval(() => {
+    console.log('Keeping the backend active...')
+  }, 600000)
+}
+
+keepBackendActive()
