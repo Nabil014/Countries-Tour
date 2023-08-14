@@ -11,12 +11,12 @@ router.use(bodyParser.json())
 function keepBackendActive() {
   setInterval(async function () {
     try {
-      const response = await axios.get('http://localhost:3001/api/countries')
-      console.log('Backend is active')
+      const response = await axios.get('/api/countries')
+      console.log(response.data)
     } catch (error) {
       console.error(error)
     }
-  }, 600000) // 600000 = 10 min
+  }, 10000) // 600000 = 10 min
 }
 
 keepBackendActive()
