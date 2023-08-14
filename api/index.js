@@ -14,10 +14,10 @@ conn.sync({ force: false }).then(async () => {
 })
 
 function keepBackendActive() {
-  console.log('Keeping the backend active...')
-
-  setInterval(() => {
-    console.log('Keeping the backend active...')
+  setInterval(function () {
+    // Hacer una solicitud a una página o endpoint de tu sitio
+    // Esto podría ser un archivo HTML, una API o cualquier recurso
+    fetch('https://countries-tour-backend.onrender.com/api/countries')
   }, 600000)
 }
 
