@@ -11,7 +11,9 @@ router.use(bodyParser.json())
 function keepBackendActive() {
   setInterval(async function () {
     try {
-      const response = await axios.get('/api/countries')
+      const response = await axios.get(
+        'https://countries-tour-backend.onrender.com/api/countries'
+      )
       console.log(response.data)
     } catch (error) {
       console.error(error)
