@@ -12,13 +12,3 @@ conn.sync({ force: false }).then(async () => {
     console.log(error)
   }
 })
-
-function keepBackendActive() {
-  setInterval(function () {
-    // Hacer una solicitud a una página o endpoint de tu sitio
-    // Esto podría ser un archivo HTML, una API o cualquier recurso
-    fetch('https://countries-tour-backend.onrender.com/api/countries')
-  }, 600000)
-}
-
-keepBackendActive()
