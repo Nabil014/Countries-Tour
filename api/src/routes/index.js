@@ -18,7 +18,7 @@ function keepBackendActive() {
     } catch (error) {
       console.error(error)
     }
-  }, 10000) // 600000 = 10 min
+  }, 600000) // 600000 = 10 min
 }
 
 keepBackendActive()
