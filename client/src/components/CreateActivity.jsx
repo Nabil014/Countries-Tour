@@ -50,6 +50,8 @@ export default function CreateActivity () {
   const handleOptionSelect = (option, field) => {
     if (field === "countries") {
       const selectedCountry = data.find((country) => country.name === option)
+      const isCountrySelected = activity.countries.some((country) => country === selectedCountry.id)
+      if (isCountrySelected) return
       setActivity((prevActivity) => ({
         ...prevActivity,
         [field]: [...activity.countries, selectedCountry.id]
@@ -103,8 +105,7 @@ export default function CreateActivity () {
     >
       <section >
         <h1 className="flex items-center justify-center pt-10 text-4xl font-bold text-center text-white gap-x-4">Create<p className="bg-[#b8ebf5] rounded-lg rotate-6 hover:rotate-3 transition-all text-[#121d4e] p-2 ">Activity</p> </h1>
-        <form className="flex flex-col p-10 gap-y-3">
-
+        <form className="flex flex-col items-center p-10 gap-y-3">
 
           <label className="text-[#e2e0e0]">Name:</label>
           <input
